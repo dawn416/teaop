@@ -1,7 +1,3 @@
-/**
- * Copyright(C) 2018 Zhejiang Fline Technology Co., Ltd. All rights reserved.
- *
- */
 package teaop.core;
 
 import teaop.annotation.Component;

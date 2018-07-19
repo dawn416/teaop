@@ -1,7 +1,3 @@
-/**
- * Copyright(C) 2018 Zhejiang Fline Technology Co., Ltd. All rights reserved.
- *
- */
 package teaop.core;
 
 import org.junit.Test;
@@ -19,6 +15,8 @@ public class AppTest {
 	@Test
 	public void test() {
 		BeanBuilder beanBuilder = new BeanBuilder("teaop.core");
+		MyService myService = beanBuilder.getBean(MyService.class);
+		myService.sayHello();
 		MyController myController = beanBuilder.getBean(MyController.class);
 		myController.returnData();
 	}

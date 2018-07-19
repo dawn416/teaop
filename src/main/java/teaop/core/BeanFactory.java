@@ -55,7 +55,7 @@ public class BeanFactory {
 		Class<?>[] interfaces = clz.getInterfaces();
 		Object newInstance = ProxyFactory.newInstance(clz);
 		for (Class<?> class1 : interfaces) {
-			List<Object> beanList = beanMap.get(class1.getName());
+			List<Object> beanList = beanMap.get(class1);
 			if (beanList == null) {
 				beanList = new ArrayList<>();
 			}
