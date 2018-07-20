@@ -9,7 +9,7 @@ import teaop.annotation.Component;
 /**
  * @since 2018年7月19日 上午11:40:40
  * @version 1.0.0
- * @author 
+ * @author
  *
  */
 public class BeanBuilder {
@@ -45,6 +45,7 @@ public class BeanBuilder {
 				if (cls.getDeclaredAnnotation(Component.class) != null) {
 					BeanFactory.createBean(cls);
 				}
+
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}

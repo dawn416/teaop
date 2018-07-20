@@ -3,6 +3,8 @@ package teaop.core;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 
+import teaop.aop.InvokeChain;
+
 /**
  * @since 2018年7月19日 上午10:03:26
  * @version 1.0.0
@@ -22,11 +24,20 @@ public class MethodHandler implements InvocationHandler {
 	}
 
 	@Override
-	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+	public Object invoke(Object proxy, final Method method, final Object[] args) throws Throwable {
+
 		System.out.println("before");
-		Object invoke = method.invoke(target, args);
+		InvokeChain chain = new InvokeChain(BeanFactory.methodInterceptor) {
+			@Override
+			public Object indeedMethod() throws Throwable {
+				return method.invoke(target, args);
+			}
+		};
+		Object process = chain.process();
+		// Object indeedInvoke = indeedInvoke(method, args);
 		System.out.println("after");
-		return invoke;
+		return process;
 	}
+
 
 }
