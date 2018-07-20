@@ -17,8 +17,9 @@ public class MyControllerImpl implements MyController {
 
 	@Override
 	public void returnData() {
+		System.out.println("hi world");
 		myService.sayHello();
-
+		System.out.println("bye world");
 	}
 
 }

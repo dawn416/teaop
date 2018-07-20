@@ -4,6 +4,7 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -18,9 +19,9 @@ import teaop.exception.BeanException;
  *
  */
 public class BeanFactory {
-	private static final ConcurrentHashMap<Class<?>, List<Object>> beanMap = new ConcurrentHashMap<>();
+	private static final Map<Class<?>, List<Object>> beanMap = new ConcurrentHashMap<>();
 
-	public final static List<AbstractAspect> methodInterceptor = new Vector<>();
+	public static final List<AbstractAspect> methodInterceptor = new Vector<>();
 
 	@SuppressWarnings("unchecked")
 	public static <T> T getBean(Class<T> clz) {
@@ -72,9 +73,9 @@ public class BeanFactory {
 			}
 			beanList.add(newInstance);
 			beanMap.put(class1, beanList);
-			if (clz.isAssignableFrom(AbstractAspect.class)) {
-				methodInterceptor.add((AbstractAspect) newInstance);
-			}
+		}
+		if (clz.isAssignableFrom(AbstractAspect.class)) {
+			methodInterceptor.add((AbstractAspect) newInstance);
 		}
 	}
 }
