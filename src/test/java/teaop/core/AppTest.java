@@ -15,10 +15,11 @@ public class AppTest {
 	@Test
 	public void test() {
 		BeanBuilder beanBuilder = new BeanBuilder("teaop");
-		// MyService myService = beanBuilder.getBean(MyService.class);
-		// myService.sayHello();
+		MyService myService = beanBuilder.getBean(MyService.class);
+		myService.sayHello();
 		MyController myController = beanBuilder.getBean(MyController.class);
 		myController.sayWhy();
+		myService.sayHello();
 	}
 
 	@Test

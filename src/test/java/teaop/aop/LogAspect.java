@@ -23,7 +23,7 @@ public class LogAspect extends AbstractAspect {
 
 	@Override
 	public String execution() {
-		return "reand";
+		return "sayHello";
 	}
 
 	@Override
