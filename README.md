@@ -1,4 +1,5 @@
 # teaop
+
 类似spring的小型aop和ioc框架
 
 使用jdk动态代理实现
@@ -6,7 +7,9 @@
 **测试代码在AppTest.java中**
 
 #使用方法：
+
 IOC容器：
+
 new一个BeanBuilder，参数为要扫描的包名（包内所有类均会被扫描到）
 
     BeanBuilder beanBuilder = new BeanBuilder("teaop");
@@ -25,6 +28,7 @@ new一个BeanBuilder，参数为要扫描的包名（包内所有类均会被扫
     private MyService myService;
 
 AOP：
+
 写个实体类继承AbstractAspect抽象类，加上@Component注解，实现以下方法，并能被BeanBuilder扫描到
 
 前置方法
