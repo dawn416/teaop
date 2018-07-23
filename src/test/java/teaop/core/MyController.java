@@ -9,4 +9,6 @@ package teaop.core;
 public interface MyController {
 
 	void returnData();
+
+	void sayWhy();
 }

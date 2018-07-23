@@ -18,7 +18,7 @@ public class AppTest {
 		// MyService myService = beanBuilder.getBean(MyService.class);
 		// myService.sayHello();
 		MyController myController = beanBuilder.getBean(MyController.class);
-		myController.returnData();
+		myController.sayWhy();
 	}
 
 	@Test

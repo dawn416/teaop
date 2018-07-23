@@ -1,5 +1,6 @@
 package teaop.aop;
 
+import java.lang.reflect.Method;
 import java.util.List;
 
 /**
@@ -17,9 +18,9 @@ public abstract class InvokeChain {
 
 	private int index = 0;
 
-	public Object process() throws Throwable {
+	public Object process(Method method) throws Throwable {
 		if (index < successors.size()) {
-			return successors.get(index++).process(this);
+			return successors.get(index++).process(this, method);
 		} else {
 			return indeedMethod();
 		}

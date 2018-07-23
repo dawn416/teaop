@@ -9,25 +9,25 @@ import teaop.annotation.Component;
  *
  */
 @Component
-public class LogAspect extends AbstractAspect {
+public class LogAspect2 extends AbstractAspect {
 
 	@Override
 	public void beforeMethod() {
-		System.out.println("before method1");
+		System.out.println("before method2");
 	}
 
 	@Override
 	public void afterMethod() {
-		System.out.println("after method1");
+		System.out.println("after method2");
 	}
 
 	@Override
 	public String execution() {
-		return "reand";
+		return "sayWhy";
 	}
 
 	@Override
 	public int orderBy() {
-		return 0;
+		return 1;
 	}
 }

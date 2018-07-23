@@ -26,16 +26,13 @@ public class MethodHandler implements InvocationHandler {
 	@Override
 	public Object invoke(Object proxy, final Method method, final Object[] args) throws Throwable {
 
-		System.out.println("before");
 		InvokeChain chain = new InvokeChain(BeanFactory.methodInterceptor) {
 			@Override
 			public Object indeedMethod() throws Throwable {
 				return method.invoke(target, args);
 			}
 		};
-		Object process = chain.process();
-		// Object indeedInvoke = indeedInvoke(method, args);
-		System.out.println("after");
+		Object process = chain.process(method);
 		return process;
 	}
 

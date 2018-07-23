@@ -22,4 +22,9 @@ public class MyControllerImpl implements MyController {
 		System.out.println("bye world");
 	}
 
+	@Override
+	public void sayWhy() {
+		System.out.println("why");
+	}
+
 }

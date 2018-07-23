@@ -65,6 +65,7 @@ public class BeanFactory {
 
 	public static void createBean(Class<?> clz) {
 		Class<?>[] interfaces = clz.getInterfaces();
+
 		Object newInstance = ProxyFactory.newInstance(clz);
 		for (Class<?> class1 : interfaces) {
 			List<Object> beanList = beanMap.get(class1);
@@ -74,8 +75,16 @@ public class BeanFactory {
 			beanList.add(newInstance);
 			beanMap.put(class1, beanList);
 		}
-		if (clz.isAssignableFrom(AbstractAspect.class)) {
-			methodInterceptor.add((AbstractAspect) newInstance);
+
+		if (AbstractAspect.class.isAssignableFrom(clz)) {
+			try {
+				Object newInstance2 = clz.newInstance();
+				methodInterceptor.add((AbstractAspect) newInstance2);
+			} catch (InstantiationException e) {
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }
