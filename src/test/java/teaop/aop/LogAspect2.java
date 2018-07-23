@@ -30,4 +30,16 @@ public class LogAspect2 extends AbstractAspect {
 	public int orderBy() {
 		return 1;
 	}
+
+	@Override
+	public void afterThrowing() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void afterReturning() {
+		// TODO Auto-generated method stub
+
+	}
 }

@@ -1,6 +1,7 @@
 package teaop.core;
 
 import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import teaop.aop.InvokeChain;
@@ -29,7 +30,13 @@ public class MethodHandler implements InvocationHandler {
 		InvokeChain chain = new InvokeChain(BeanFactory.methodInterceptor) {
 			@Override
 			public Object indeedMethod() throws Throwable {
-				return method.invoke(target, args);
+				try {
+					return method.invoke(target, args);
+				} catch (InvocationTargetException e) {
+					// 抛出的异常会被代理类包装，需要拿到原始异常抛出
+					throw e.getCause();
+				}
+				// return method.invoke(target, args);
 			}
 		};
 		Object process = chain.process(method);

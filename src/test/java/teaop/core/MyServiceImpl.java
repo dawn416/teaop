@@ -15,6 +15,9 @@ public class MyServiceImpl implements MyService {
 	public int sayHello() {
 
 		System.out.println("hello world");
+		if (true) {
+			throw new RuntimeException();
+		}
 		return 1;
 	}
 

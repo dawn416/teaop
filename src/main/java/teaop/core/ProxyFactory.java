@@ -1,8 +1,10 @@
 package teaop.core;
 
 import java.lang.reflect.Proxy;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
+
+import teaop.aop.AbstractAspect;
 
 /**
  * @since 2018年7月19日 上午10:30:49
@@ -12,7 +14,7 @@ import java.util.List;
  */
 public class ProxyFactory {
 
-	public static final List<Object> objList = new ArrayList<>();
+	public static final List<Object> objList = new Vector<>();
 
 	@SuppressWarnings("unchecked")
 	public static <T> T newInstance(Class<T> clz) {
@@ -21,6 +23,9 @@ public class ProxyFactory {
 		try {
 			newInstance = clz.newInstance();
 			objList.add(newInstance);
+			if (AbstractAspect.class.isAssignableFrom(clz)) {
+				BeanFactory.methodInterceptor.add((AbstractAspect) newInstance);
+			}
 		} catch (InstantiationException e) {
 			e.printStackTrace();
 		} catch (IllegalAccessException e) {

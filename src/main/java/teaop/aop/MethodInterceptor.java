@@ -11,6 +11,10 @@ public interface MethodInterceptor {
 
 	void afterMethod();
 
+	void afterThrowing();
+
+	void afterReturning();
+
 	String execution();
 
 	int orderBy();

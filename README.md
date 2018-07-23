@@ -46,3 +46,11 @@ AOP：
 多个切面的顺序（从小到大排列）
 
     public abstract int orderBy();
+    
+方法抛出异常前
+    
+    public abstract void afterThrowing();
+    
+方法返回前
+
+    public abstract void afterReturning();

@@ -10,26 +10,29 @@ import java.lang.reflect.Method;
  */
 public abstract class AbstractAspect implements MethodInterceptor {
 
-	@Override
-	public abstract void beforeMethod();
 
-	@Override
-	public abstract void afterMethod();
-
-	@Override
-	public abstract String execution();
-
-	@Override
-	public abstract int orderBy();
 
 	public Object process(InvokeChain chain, Method method) throws Throwable {
-		if (method.getName().equals(execution())) {
-			beforeMethod();
+
+		try {
+			if (method.getName().equals(execution())) {
+				beforeMethod();
+			}
+			Object process = chain.process(method);
+			if (method.getName().equals(execution())) {
+				afterMethod();
+			}
+			return process;
+		} catch (Exception e) {
+			if (method.getName().equals(execution())) {
+				afterThrowing();
+			}
+			throw e;
+		} finally {
+			if (method.getName().equals(execution())) {
+				afterReturning();
+			}
 		}
-		Object process = chain.process(method);
-		if (method.getName().equals(execution())) {
-			afterMethod();
-		}
-		return process;
+
 	}
 }

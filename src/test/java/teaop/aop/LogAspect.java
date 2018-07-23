@@ -30,4 +30,16 @@ public class LogAspect extends AbstractAspect {
 	public int orderBy() {
 		return 0;
 	}
+
+	@Override
+	public void afterThrowing() {
+		System.out.println("exception");
+
+	}
+
+	@Override
+	public void afterReturning() {
+		System.out.println("finally");
+
+	}
 }

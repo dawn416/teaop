@@ -75,16 +75,5 @@ public class BeanFactory {
 			beanList.add(newInstance);
 			beanMap.put(class1, beanList);
 		}
-
-		if (AbstractAspect.class.isAssignableFrom(clz)) {
-			try {
-				Object newInstance2 = clz.newInstance();
-				methodInterceptor.add((AbstractAspect) newInstance2);
-			} catch (InstantiationException e) {
-				e.printStackTrace();
-			} catch (IllegalAccessException e) {
-				e.printStackTrace();
-			}
-		}
 	}
 }
