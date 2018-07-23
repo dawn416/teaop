@@ -1,7 +1,7 @@
 # teaop
 类似spring的小型aop和ioc框架
 
-使用jdk动态代理实现
+使用jdk动态代理实现，使用了责任链模式和模板方法模式，当然还有代理模式等
 
 **测试代码在AppTest.java中**
 
