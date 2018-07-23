@@ -2,7 +2,7 @@
 
 类似spring的小型aop和ioc框架
 
-使用jdk动态代理实现
+使用jdk动态代理实现，使用了责任链模式和模板方法模式，当然还有代理模式等
 
 **测试代码在AppTest.java中**
 
@@ -14,7 +14,7 @@ new一个BeanBuilder，参数为要扫描的包名（包内所有类均会被扫
 
     BeanBuilder beanBuilder = new BeanBuilder("teaop");
 
-写一个接口，一个接口实现类，加上@Component注解,放在要扫描的包下
+写一个接口，一个接口实现类，加上@Component注解,放在要扫描的包下，必须要有默认构造方法
 
 直接从beanBuilder对象中使用getBean取得接口的代理对象
 
