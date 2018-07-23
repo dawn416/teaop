@@ -11,7 +11,7 @@ new一个BeanBuilder，参数为要扫描的包名（包内所有类均会被扫
 
     BeanBuilder beanBuilder = new BeanBuilder("teaop");
 
-写一个接口，一个接口实现类，加上@Component注解,放在要扫描的包下
+写一个接口，一个接口实现类，加上@Component注解,放在要扫描的包下，必须要有默认构造方法
 
 直接从beanBuilder对象中使用getBean取得接口的代理对象
 
