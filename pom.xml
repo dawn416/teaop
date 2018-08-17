@@ -30,6 +30,7 @@
 					<target>${java.version}</target>
 					<encoding>${project.build.sourceEncoding}</encoding>
 				</configuration>
+				<version>3.7.0</version>
 			</plugin>
 		</plugins>
 	</build>

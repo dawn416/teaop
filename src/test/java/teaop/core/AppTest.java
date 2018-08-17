@@ -27,7 +27,7 @@ public class AppTest {
 		// Component.class
 		Class<MyController> clzs = MyController.class;
 		Class<MyControllerImpl> clz = MyControllerImpl.class;
-		System.out.println(clzs.getDeclaredAnnotation(Component.class));
-		System.out.println(clz.getDeclaredAnnotation(Component.class));
+		System.out.println(clz.getAnnotations().length);
+		System.out.println(clz.getAnnotation(Component.class));
 	}
 }

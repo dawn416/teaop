@@ -42,7 +42,7 @@ public class BeanBuilder {
 			Class<?> cls;
 			try {
 				cls = Class.forName(s);
-				if (cls.getDeclaredAnnotation(Component.class) != null) {
+				if (cls.getAnnotation(Component.class) != null) {
 					BeanFactory.createBean(cls);
 				}
 

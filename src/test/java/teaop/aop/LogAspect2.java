@@ -33,13 +33,11 @@ public class LogAspect2 extends AbstractAspect {
 
 	@Override
 	public void afterThrowing() {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void afterReturning() {
-		// TODO Auto-generated method stub
 
 	}
 }
