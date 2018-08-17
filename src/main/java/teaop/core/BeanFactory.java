@@ -41,7 +41,7 @@ public class BeanFactory {
 			Class<? extends Object> class1 = obj.getClass();
 			Field[] declaredFields = class1.getDeclaredFields();
 			for (Field field : declaredFields) {
-				if (field.getDeclaredAnnotationsByType(Autowired.class) != null) {
+				if (field.getAnnotationsByType(Autowired.class) != null) {
 					Class<?> type = field.getType();
 					Object bean2 = getBean(type);
 					try {
