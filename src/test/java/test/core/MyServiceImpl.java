@@ -1,4 +1,4 @@
-package teaop.core;
+package test.core;
 
 import teaop.annotation.Component;
 

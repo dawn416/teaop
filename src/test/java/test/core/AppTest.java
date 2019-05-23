@@ -1,8 +1,9 @@
-package teaop.core;
+package test.core;
 
 import org.junit.Test;
 
 import teaop.annotation.Component;
+import teaop.core.BeanBuilder;
 
 /**
  * @since 2018年7月19日 上午10:21:19
@@ -14,12 +15,13 @@ public class AppTest {
 
 	@Test
 	public void test() {
-		BeanBuilder beanBuilder = new BeanBuilder("teaop");
-		MyService myService = beanBuilder.getBean(MyService.class);
-		myService.sayHello();
+		BeanBuilder beanBuilder = new BeanBuilder("test");
+		// MyService myService = beanBuilder.getBean(MyService.class);
+		// myService.sayHello();
 		MyController myController = beanBuilder.getBean(MyController.class);
-		myController.sayWhy();
-		myService.sayHello();
+		myController.returnData();
+		// myController.sayWhy();
+		// myService.sayHello();
 	}
 
 	@Test
