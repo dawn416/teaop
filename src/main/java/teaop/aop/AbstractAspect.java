@@ -10,8 +10,6 @@ import java.lang.reflect.Method;
  */
 public abstract class AbstractAspect implements MethodInterceptor {
 
-
-
 	public Object process(InvokeChain chain, Method method) throws Throwable {
 
 		try {
